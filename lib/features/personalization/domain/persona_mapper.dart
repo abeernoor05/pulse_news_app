@@ -1,4 +1,3 @@
-import 'topic.dart';
 import 'user_preferences.dart';
 
 // What to ask the news API for. Kept separate from any specific API.
