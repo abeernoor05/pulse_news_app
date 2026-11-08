@@ -11,6 +11,9 @@ class OnboardingRepository {
   bool get isCompleted => _prefs.getBool(_key) ?? false;
 
   Future<void> markCompleted() => _prefs.setBool(_key, true);
+
+  // Used by the temporary "reset" button, and later by "delete account".
+  Future<void> reset() => _prefs.remove(_key);
 }
 
 final onboardingRepositoryProvider = Provider<OnboardingRepository>((ref) {

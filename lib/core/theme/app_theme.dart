@@ -98,7 +98,17 @@ class AppTheme {
         height: 72,
         backgroundColor: c.surface,
         elevation: 0,
-        indicatorColor: Colors.transparent, // no pill behind the active icon
+        indicatorColor: Colors.transparent,
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          final selected = states.contains(WidgetState.selected);
+          return IconThemeData(color: selected ? c.primary : c.textSecondary);
+        }),
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          final selected = states.contains(WidgetState.selected);
+          return textTheme.labelSmall?.copyWith(
+            color: selected ? c.primary : c.textSecondary,
+          );
+        }),
       ),
     );
   }
