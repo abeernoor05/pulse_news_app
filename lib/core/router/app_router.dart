@@ -7,6 +7,10 @@ import '../../features/onboarding/presentation/welcome_screen.dart';
 import '../../features/saved/presentation/saved_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
+import '../../features/onboarding/presentation/digest_signin_screen.dart';
+import '../../features/onboarding/presentation/persona_screen.dart';
+import '../../features/onboarding/presentation/region_language_screen.dart';
+import '../../features/onboarding/presentation/topics_screen.dart';
 import 'routes.dart';
 import 'shell_scaffold.dart';
 
@@ -38,6 +42,22 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Routes.welcome,
         builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: Routes.persona,
+        builder: (context, state) => const PersonaScreen(),
+      ),
+      GoRoute(
+        path: Routes.topics,
+        builder: (context, state) => const TopicsScreen(),
+      ),
+      GoRoute(
+        path: Routes.region,
+        builder: (context, state) => const RegionLanguageScreen(),
+      ),
+      GoRoute(
+        path: Routes.digest,
+        builder: (context, state) => const DigestSignInScreen(),
       ),
 
       // The 4 tabs. Each branch is its own navigation stack.

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import '../../../core/router/routes.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_button.dart';
-import '../application/onboarding_controller.dart';
 
-class WelcomeScreen extends ConsumerWidget {
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
     return Scaffold(
       body: SafeArea(
@@ -25,11 +25,9 @@ class WelcomeScreen extends ConsumerWidget {
                 style: t.bodyLarge,
               ),
               const SizedBox(height: Spacing.xl),
-              // Temporary: later this goes to the Persona screen instead.
               AppButton(
                 label: 'Get started',
-                onPressed: () =>
-                    ref.read(onboardingControllerProvider.notifier).complete(),
+                onPressed: () => context.push(Routes.persona),
               ),
             ],
           ),
